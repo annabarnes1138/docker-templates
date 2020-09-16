@@ -19,16 +19,16 @@ RUN set -ex && \
     git \
     openssl \
     openssh-client && \
-    mkdir -p /usr/src/node-red /data && \
+    mkdir -p /usr/src/root /data && \
     deluser --remove-home node && \
-    adduser -h /usr/src/node-red -D -H node-red -u 1000 && \
+    adduser -h /usr/src/root -D -H node-red -u 1000 && \
     chown -R node-red:root /data && chmod -R g+rwX /data && \ 
-    chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
+    chown -R node-red:root /usr/src/root && chmod -R g+rwX /usr/src/root
 # chown -R node-red:node-red /data && \
-# chown -R node-red:node-red /usr/src/node-red
+# chown -R node-red:node-red /usr/src/root
 
 # Set work directory
-WORKDIR /usr/src/node-red
+WORKDIR /usr/src/root
 
 # package.json contains Node-RED NPM module and node dependencies
 COPY package.json .
@@ -62,21 +62,24 @@ LABEL org.label-schema.build-date=${BUILD_DATE} \
     org.label-schema.vcs-type="Git" \
     org.label-schema.vcs-url="https://github.com/node-red/node-red-docker" \
     org.label-schema.arch=${ARCH} \
-    authors="Dave Conway-Jones, Nick O'Leary, James Thomas, Raymond Mouthaan"
+    authors="Dave Conway-Jones, Nick O'Leary, James Thomas, Raymond Mouthaan, Steven Barnes"
 
-COPY --from=build /usr/src/node-red/prod_node_modules ./node_modules
+# Copy root filesystem
+COPY rootfs /
 
-# Chown, install devtools & Clean up
-RUN chown -R node-red:root /usr/src/node-red && \
-    /tmp/install_devtools.sh && \
-    rm -r /tmp/*
+# Install s6 overlay - https://github.com/just-containers/s6-overlay
+ADD https://github.com/just-containers/s6-overlay/releases/download/v1.18.1.5/s6-overlay-amd64.tar.gz /tmp/s6-overlay.tar.gz
+RUN tar xvfz /tmp/s6-overlay.tar.gz -C /
 
-USER node-red
+# Copy node modules from base
+COPY --from=build /usr/src/root/prod_node_modules ./node_modules
 
 # Env variables
 ENV NODE_RED_VERSION=$NODE_RED_VERSION \
-    NODE_PATH=/usr/src/node-red/node_modules:/data/node_modules \
-    FLOWS=flows.json
+    NODE_PATH=/usr/src/root/node_modules:/data/node_modules \
+    FLOWS=flows.json \
+    S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
+    S6_CMD_WAIT_FOR_SERVICES=1
 
 # ENV NODE_RED_ENABLE_SAFE_MODE=true    # Uncomment to enable safe start mode (flows not running)
 # ENV NODE_RED_ENABLE_PROJECTS=true     # Uncomment to enable projects option
@@ -90,4 +93,4 @@ EXPOSE 1880
 # Add a healthcheck (default every 30 secs)
 # HEALTHCHECK CMD curl http://localhost:1880/ || exit 1
 
-ENTRYPOINT ["npm", "start", "--cache", "/data/.npm", "--", "--userDir", "/data"]
+ENTRYPOINT ["/init"]
