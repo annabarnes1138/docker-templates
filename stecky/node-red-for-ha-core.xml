@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>node-red-for-ha-core</Name>
+  <Repository>stecky/node-red-for-ha-core</Repository>
+  <Registry>https://hub.docker.com/r/stecky/node-red-for-ha-core</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>[b][u][span style='color: #E80000;']Description[/span][/u][/b][br]&#xD;
+    Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.[br][br]&#xD;
+    This creates a fully configured Node-RED instance very similar to the hassio add-on.[br][br]&#xD;
+    Note: If you run hassio then you should just install the add-on, but if you run Home Assistant Core then this is for you.[br][br]&#xD;
+    [b][u][span style='color: #E80000;']Documentation[/span][/u][/b][br]&#xD;
+    See NodeRed.org and flows.nodered.org for more info.[br][br]</Overview>
+  <Category>HomeAutomation: Status:Beta</Category>
+  <WebUI>http://[IP]:[PORT:1880]</WebUI>
+  <TemplateURL>https://github.com/stecky/docker-templates/blob/master/unraid-templates/node-red-for-ha-core.xml</TemplateURL>
+  <Icon>https://nodered.org/about/resources/media/node-red-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1600286570</DateInstalled>
+  <DonateText>If you appreciate my work, then please consider buying me a coke :D</DonateText>
+  <DonateLink>https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;amp;hosted_button_id=DX3QWDBMWTVFJ&amp;amp;source=url</DonateLink>
+  <Description>[b][u][span style='color: #E80000;']Description[/span][/u][/b][br]&#xD;
+    Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.[br][br]&#xD;
+    This creates a fully configured Node-RED instance very similar to the hassio add-on.[br][br]&#xD;
+    Note: If you run hassio then you should just install the add-on, but if you run Home Assistant Core then this is for you.[br][br]&#xD;
+    [b][u][span style='color: #E80000;']Documentation[/span][/u][/b][br]&#xD;
+    See NodeRed.org and flows.nodered.org for more info.[br][br]</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>1880</HostPort>
+        <ContainerPort>1880</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/nodered</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>http://localhost:8123</Value>
+      <Name>HOMEASSISTANT_URL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>HOMEASSISTANT_TOKEN</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Config Path" Target="/data" Default="" Mode="rw" Description="This is the path where user configuration data will be stored such as nodes and flows." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/nodered</Config>
+  <Config Name="Host Port" Target="1880" Default="1880" Mode="tcp" Description="Container Port: 1880" Type="Port" Display="always" Required="true" Mask="false">1880</Config>
+  <Config Name="Home Assistant URL" Target="HOMEASSISTANT_URL" Default="http://localhost:8123" Mode="" Description="The URL to your instance of Home Assistant Core" Type="Variable" Display="always" Required="true" Mask="false">http://localhost:8123</Config>
+  <Config Name="Home Assistant Access Token" Target="HOMEASSISTANT_TOKEN" Default="" Mode="" Description="Create a long-lived access token in Home Assistant and paste it here" Type="Variable" Display="always" Required="true" Mask="true"/>
+</Container>
