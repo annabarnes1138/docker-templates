@@ -10,11 +10,11 @@
   <Support/>
   <Project/>
   <Overview>[b][u][span style='color: #E80000;']Description[/span][/u][/b][br]&#xD;
-    Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.[br][br]&#xD;
-    This creates a fully configured Node-RED instance very similar to the hassio add-on.[br][br]&#xD;
-    Note: If you run hassio then you should just install the add-on, but if you run Home Assistant Core then this is for you.[br][br]&#xD;
+    Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.[br]&#xD;
+    This creates a fully configured Node-RED instance very similar to the hassio add-on.[br]&#xD;
+    Note: If you run hassio then you should just install the add-on, but if you run Home Assistant Core then this is for you.[br]&#xD;
     [b][u][span style='color: #E80000;']Documentation[/span][/u][/b][br]&#xD;
-    See NodeRed.org and flows.nodered.org for more info.[br][br]</Overview>
+    See NodeRed.org and flows.nodered.org for more info.[br]</Overview>
   <Category>HomeAutomation: Status:Beta</Category>
   <WebUI>http://[IP]:[PORT:1880]</WebUI>
   <TemplateURL>https://github.com/stecky/docker-templates/blob/master/unraid-templates/node-red-for-ha-core.xml</TemplateURL>
