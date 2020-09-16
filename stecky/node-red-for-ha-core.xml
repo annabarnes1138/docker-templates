@@ -7,8 +7,8 @@
   <MyIP/>
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
-  <Support/>
-  <Project/>
+  <Support>https://forums.unraid.net/topic/96982-support-steckys-docker-repository</Support>
+  <Project>https://github.com/stecky/docker-images/tree/master/node-red-for-ha-core</Project>
   <Overview>[b][u][span style='color: #E80000;']Description[/span][/u][/b][br]&#xD;
     Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.[br]&#xD;
     This creates a fully configured Node-RED instance very similar to the hassio add-on.[br]&#xD;
