@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>vscode-for-ha-core</Name>
+  <Repository>linuxserver/code-server</Repository>
+  <Registry>https://hub.docker.com/r/linuxserver/code-server/</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/96982-support-steckys-docker-repository</Support>
+  <Project>https://github.com/cdr/code-server</Project>
+  <Overview>Code-server is VS Code running on a remote server, accessible through the browser.[ul][li]Allows you to edit your Home Assistant configuration directly from your web browser and can be embedded straight into the Home Assistant frontend UI.[/li][li]Installs and configures the Home Assistant, MDI icons and YAML extensions. This means that auto-completion works instantly, without the need for configuring anything.[/li][/ul][br][b][a href="https://github.com/linuxserver/docker-code-server"]Click here for additional details about the base image used[/a][/b]</Overview>
+  <Category>Cloud: HomeAutomation: Productivity: Tools: Status:Stable</Category>
+  <WebUI>http://[IP]:[PORT:1337]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/code-server.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/code-server.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1600902151</DateInstalled>
+  <DonateText>Donations</DonateText>
+  <DonateLink>https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;amp;amp;amp;hosted_button_id=DX3QWDBMWTVFJ&amp;amp;amp;amp;source=url</DonateLink>
+  <Description>Code-server is VS Code running on a remote server, accessible through the browser.[ul][li]Allows you to edit your Home Assistant configuration directly from your web browser and can be embedded straight into the Home Assistant frontend UI.[/li][li]Installs and configures the Home Assistant, MDI icons and YAML extensions. This means that auto-completion works instantly, without the need for configuring anything.[/li][/ul][br][b][a href="https://github.com/linuxserver/docker-code-server"]Click here for additional details about the base image used[/a][/b]</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>1337</HostPort>
+        <ContainerPort>1337</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/code-server</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/Home-Assistant-Core</HostDir>
+      <ContainerDir>/ha_config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>http://localhost:8123</Value>
+      <Name>HOMEASSISTANT_URL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>HOMEASSISTANT_TOKEN</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Webui" Target="1337" Default="" Mode="tcp" Description="Webui Port - Default 1337" Type="Port" Display="always" Required="true" Mask="false">1337</Config>
+  <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Path to the vscode config folder" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/code-server</Config>
+  <Config Name="Home Assistant URL" Target="HOMEASSISTANT_URL" Default="http://localhost:8123" Mode="" Description="The URL to your instance of Home Assistant Core" Type="Variable" Display="always" Required="true" Mask="false">http://localhost:8123</Config>
+  <Config Name="Home Assistant Access Token" Target="HOMEASSISTANT_TOKEN" Default="" Mode="" Description="Create a long-lived access token in Home Assistant and paste it here" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Home Assistant Config" Target="/ha_config" Default="" Mode="rw" Description="Path to the home assistant config folder" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/home-assistant</Config>
+  <Config Name="PUID" Target="PUID" Default="" Mode="" Description="PUID" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="" Mode="" Description="PGID" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+</Container>
