@@ -11,7 +11,7 @@
   <Project>https://github.com/cdr/code-server</Project>
   <Overview>Code-server is VS Code running on a remote server, accessible through the browser.[ul][li]Allows you to edit your Home Assistant configuration directly from your web browser and can be embedded straight into the Home Assistant frontend UI.[/li][li]Installs and configures the Home Assistant, MDI icons and YAML extensions. This means that auto-completion works instantly, without the need for configuring anything.[/li][/ul][br][b][a href="https://github.com/linuxserver/docker-code-server"]Click here for additional details about the base image used[/a][/b]</Overview>
   <Category>Cloud: HomeAutomation: Productivity: Tools: Status:Stable</Category>
-  <WebUI>http://[IP]:[PORT:1337]</WebUI>
+  <WebUI>http://[IP]:[PORT:8443]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/code-server.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/code-server.png</Icon>
   <ExtraParams>-e DOCKER_MODS=stecky/mods:code-server-home-assistant</ExtraParams>
@@ -25,8 +25,8 @@
     <Mode>host</Mode>
     <Publish>
       <Port>
-        <HostPort>1337</HostPort>
-        <ContainerPort>1337</ContainerPort>
+        <HostPort>8443</HostPort>
+        <ContainerPort>8443</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
@@ -66,7 +66,7 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Webui" Target="1337" Default="" Mode="tcp" Description="Webui Port - Default 1337" Type="Port" Display="always" Required="true" Mask="false">1337</Config>
+  <Config Name="Webui" Target="8443" Default="" Mode="tcp" Description="Webui Port - Default 8443" Type="Port" Display="always" Required="true" Mask="false">8443</Config>
   <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/vscode-for-ha-core" Mode="rw" Description="Path to the vscode config folder" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/code-server/</Config>
   <Config Name="Home Assistant URL" Target="HOMEASSISTANT_URL" Default="http://localhost:8123" Mode="" Description="The URL to your instance of Home Assistant Core" Type="Variable" Display="always" Required="true" Mask="false">http://localhost:8123</Config>
   <Config Name="Home Assistant Access Token" Target="HOMEASSISTANT_TOKEN" Default="" Mode="" Description="Create a long-lived access token in Home Assistant and paste it here" Type="Variable" Display="always" Required="true" Mask="true"/>
