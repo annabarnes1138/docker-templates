@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>node-red-for-ha-core</Name>
-  <Repository>stecky/node-red-for-ha-core</Repository>
-  <Registry>https://hub.docker.com/r/stecky/node-red-for-ha-core</Registry>
+  <Repository>stecky/node-red</Repository>
+  <Registry>https://hub.docker.com/r/stecky/node-red</Registry>
   <Network>host</Network>
   <MyIP/>
   <Shell>bash</Shell>
@@ -19,7 +19,7 @@
   <WebUI>http://[IP]:[PORT:1880]</WebUI>
   <TemplateURL>https://github.com/stecky/docker-templates/blob/master/unraid-templates/node-red-for-ha-core.xml</TemplateURL>
   <Icon>https://nodered.org/about/resources/media/node-red-icon.png</Icon>
-  <ExtraParams/>
+  <ExtraParams>-e DOCKER_MODS=stecky/mods:node-red-home-assistant</ExtraParams>
   <PostArgs/>
   <CPUset/>
   <DateInstalled>1600286570</DateInstalled>
@@ -59,10 +59,34 @@
       <Name>HOMEASSISTANT_TOKEN</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value/>
+      <Name>MQTT_HOST</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MQTT_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MQTT_USERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MQTT_PASSWORD</Name>
+      <Mode/>
+    </Variable>
   </Environment>
   <Labels/>
   <Config Name="Config Path" Target="/data" Default="" Mode="rw" Description="This is the path where user configuration data will be stored such as nodes and flows." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/nodered</Config>
   <Config Name="Host Port" Target="1880" Default="1880" Mode="tcp" Description="Container Port: 1880" Type="Port" Display="always" Required="true" Mask="false">1880</Config>
-  <Config Name="Home Assistant URL" Target="HOMEASSISTANT_URL" Default="http://localhost:8123" Mode="" Description="The URL to your instance of Home Assistant Core" Type="Variable" Display="always" Required="true" Mask="false">http://localhost:8123</Config>
-  <Config Name="Home Assistant Access Token" Target="HOMEASSISTANT_TOKEN" Default="" Mode="" Description="Create a long-lived access token in Home Assistant and paste it here" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Home Assistant URL" Target="HOMEASSISTANT_URL" Default="http://localhost:8123" Mode="" Description="The URL to your instance of Home Assistant Core" Type="Variable" Display="always" Required="false" Mask="false">http://localhost:8123</Config>
+  <Config Name="Home Assistant Access Token" Target="HOMEASSISTANT_TOKEN" Default="" Mode="" Description="Create a long-lived access token in Home Assistant and paste it here" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="MQTT Broker Host" Target="MQTT_HOST" Default="localhost" Mode="" Description="The hostname or ip address of your mqtt broker" Type="Variable" Display="always" Required="false" Mask="false">localhost</Config>
+  <Config Name="MQTT Broker Port" Target="MQTT_PORT" Default="1883" Mode="" Description="The tcp port that your mqtt broker runs on" Type="Variable" Display="always" Required="false" Mask="false">1883</Config>
+  <Config Name="MQTT Broker Username" Target="MQTT_USERNAME" Default="" Mode="" Description="The username of a user with access to your mqtt broker" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="MQTT Broker Password" Target="MQTT_PASSWORD" Default="" Mode="" Description="The password of a user with access to your mqtt broker" Type="Variable" Display="always" Required="false" Mask="true"></Config>
 </Container>

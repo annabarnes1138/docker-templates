@@ -55,6 +55,26 @@
       <Mode/>
     </Variable>
     <Variable>
+      <Value/>
+      <Name>MQTT_HOST</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MQTT_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MQTT_USERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MQTT_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
       <Value>99</Value>
       <Name>PUID</Name>
       <Mode/>
@@ -70,7 +90,11 @@
   <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/vscode-for-ha-core" Mode="rw" Description="Path to the vscode config folder" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/code-server/</Config>
   <Config Name="Home Assistant URL" Target="HOMEASSISTANT_URL" Default="http://localhost:8123" Mode="" Description="The URL to your instance of Home Assistant Core" Type="Variable" Display="always" Required="true" Mask="false">http://localhost:8123</Config>
   <Config Name="Home Assistant Access Token" Target="HOMEASSISTANT_TOKEN" Default="" Mode="" Description="Create a long-lived access token in Home Assistant and paste it here" Type="Variable" Display="always" Required="true" Mask="true"/>
-  <Config Name="Home Assistant Config" Target="/ha_config" Default="" Mode="rw" Description="Path to the home assistant config folder" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Home-Assistant-Core/</Config>
+  <Config Name="Home Assistant Config Path" Target="/ha_config" Default="" Mode="rw" Description="Path to the home assistant config folder" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Home-Assistant-Core/</Config>
+  <Config Name="MQTT Broker Host" Target="MQTT_HOST" Default="localhost" Mode="" Description="The hostname or ip address of your mqtt broker" Type="Variable" Display="always" Required="false" Mask="false">localhost</Config>
+  <Config Name="MQTT Broker Port" Target="MQTT_PORT" Default="1883" Mode="" Description="The tcp port that your mqtt broker runs on" Type="Variable" Display="always" Required="false" Mask="false">1883</Config>
+  <Config Name="MQTT Broker Username" Target="MQTT_USERNAME" Default="" Mode="" Description="The username of a user with access to your mqtt broker" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="MQTT Broker Password" Target="MQTT_PASSWORD" Default="" Mode="" Description="The password of a user with access to your mqtt broker" Type="Variable" Display="always" Required="false" Mask="true"></Config>
   <Config Name="PUID" Target="PUID" Default="" Mode="" Description="PUID" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="" Mode="" Description="PGID" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
 </Container>

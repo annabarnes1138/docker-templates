@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>mosquitto-mqtt-broker</Name>
+  <Repository>lsiobase/alpine:3.11</Repository>
+  <Registry>https://hub.docker.com/r/lsiobase/alpine/</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/96982-support-steckys-docker-repository</Support>
+  <Project>https://github.com/eclipse/mosquitto</Project>
+  <Overview>[p]This container is essentially a port of the official [a href='https://mosquitto.org/']Eclipse Mosquitto[/a] Docker container but with a base image of lsiobase/alpine.[/p]&#xD;
+[h4]Configuration[/h4]&#xD;
+[p]To set up paths and ports, see the descriptions in the unRAID docker settings page.[/p]&#xD;
+[p]To further control mosquitto configuration, place a [code]mosquitto.conf[/code] file in the config path, or start the container one time and it will write a template [code]mosquitto.conf.example[/code] file to the config path for you to copy and edit. For further details, refer to the full README at [a href='https://github.com/cmccambridge/mosquitto-unraid/blob/master/README.md']https://github.com/cmccambridge/mosquitto-unraid/blob/master/README.md[/a][/p]&#xD;
+&#xD;
+</Overview>
+  <Category>Cloud: HomeAutomation: Productivity: Tools: Status:Stable</Category>
+  <WebUI>http://[IP]:[PORT:1883]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/stecky/docker-templates/master/stecky/mosquitto-mqtt-broker.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/stecky/docker-templates/master/icons/eclipse-mosquitto.png</Icon>
+  <ExtraParams>-e DOCKER_MODS="linuxserver/mods:code-server-python3|stecky/mods:code-server-home-assistant"</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1600902529</DateInstalled>
+  <DonateText>Donations</DonateText>
+  <DonateLink>https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;amp;amp;amp;hosted_button_id=DX3QWDBMWTVFJ&amp;amp;amp;amp;source=url</DonateLink>
+  <Description>[p]This container is essentially a port of the official [a href='https://mosquitto.org/']Eclipse Mosquitto[/a] Docker container but with a base image of lsiobase/alpine.[/p]&#xD;
+[h4]Configuration[/h4]&#xD;
+[p]To set up paths and ports, see the descriptions in the unRAID docker settings page.[/p]&#xD;
+[p]To further control mosquitto configuration, place a [code]mosquitto.conf[/code] file in the config path, or start the container one time and it will write a template [code]mosquitto.conf.example[/code] file to the config path for you to copy and edit. For further details, refer to the full README at [a href='https://github.com/cmccambridge/mosquitto-unraid/blob/master/README.md']https://github.com/cmccambridge/mosquitto-unraid/blob/master/README.md[/a][/p]&#xD;
+&#xD;
+</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>1883</HostPort>
+        <ContainerPort>1883</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort/>
+        <ContainerPort>8883</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort/>
+        <ContainerPort>9001</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/mosquitto</HostDir>
+      <ContainerDir>/mosquitto/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/mosquitto/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/mosquitto/log</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="Config Directory" Target="/mosquitto/config" Default="/mnt/user/appdata/mosquitto" Mode="rw" Description="Store &amp;lt;code&amp;gt;mosquitto.conf&amp;lt;/code&amp;gt; (or additional &amp;lt;code&amp;gt;*.conf&amp;lt;/code&amp;gt; files). &amp;lt;em&amp;gt;Container Path: &amp;lt;code&amp;gt;/mosquitto/config&amp;lt;/code&amp;gt;&amp;lt;/em&amp;gt;" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mosquitto</Config>
+  <Config Name="Persistent Data Directory" Target="/mosquitto/data" Default="" Mode="rw" Description="&amp;lt;em&amp;gt;(Optional)&amp;lt;/em&amp;gt; Store persistent MQTT data. &amp;lt;strong&amp;gt;Note:&amp;lt;/strong&amp;gt; Persistent data must be enabled in the &amp;lt;code&amp;gt;mosquitto.conf&amp;lt;/code&amp;gt; config file. &amp;lt;em&amp;gt;Container Path: &amp;lt;code&amp;gt;/mosquitto/data&amp;lt;/code&amp;gt;&amp;lt;/em&amp;gt;" Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Log Directory" Target="/mosquitto/log" Default="" Mode="rw" Description="&amp;lt;em&amp;gt;(Optional)&amp;lt;/em&amp;gt; Store mosquitto logs. &amp;lt;strong&amp;gt;Note:&amp;lt;/strong&amp;gt; Logs must be enabled in the &amp;lt;code&amp;gt;mosquitto.conf&amp;lt;/code&amp;gt; config file. &amp;lt;em&amp;gt;Container Path: &amp;lt;code&amp;gt;/mosquitto/log&amp;lt;/code&amp;gt;&amp;lt;/em&amp;gt;" Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Host Port: MQTT Server" Target="1883" Default="1883" Mode="tcp" Description="MQTT Server Port. &amp;lt;em&amp;gt;Container Port: &amp;lt;code&amp;gt;1883&amp;lt;/code&amp;gt;&amp;lt;/em&amp;gt;" Type="Port" Display="always" Required="true" Mask="false">1883</Config>
+  <Config Name="Host Port: MQTT TLS" Target="8883" Default="" Mode="tcp" Description="&amp;lt;em&amp;gt;(Optional)&amp;lt;/em&amp;gt; MQTT-TLS Server Port  &amp;lt;strong&amp;gt;Note:&amp;lt;/strong&amp;gt; TLS must be configured in the &amp;lt;code&amp;gt;mosquitto.conf&amp;lt;/code&amp;gt; config file. &amp;lt;em&amp;gt;Container Port: &amp;lt;code&amp;gt;8883&amp;lt;/code&amp;gt;&amp;lt;/em&amp;gt;" Type="Port" Display="always" Required="false" Mask="false"/>
+  <Config Name="Host Port: MQTT Websockets" Target="9001" Default="" Mode="tcp" Description="&amp;lt;em&amp;gt;(Optional)&amp;lt;/em&amp;gt; MQTT Websockets Server Port.  &amp;lt;strong&amp;gt;Note:&amp;lt;/strong&amp;gt; Websockets must be enabled in the &amp;lt;code&amp;gt;mosquitto.conf&amp;lt;/code&amp;gt; config file. &amp;lt;em&amp;gt;Container Port: &amp;lt;code&amp;gt;9001&amp;lt;/code&amp;gt;&amp;lt;/em&amp;gt;" Type="Port" Display="always" Required="false" Mask="false"/>
+</Container>
