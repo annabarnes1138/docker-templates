@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>mosquitto-mqtt-broker</Name>
-  <Repository>lsiobase/alpine:3.11</Repository>
-  <Registry>https://hub.docker.com/r/lsiobase/alpine/</Registry>
+  <Repository>stecky/mosquitto</Repository>
+  <Registry>https://hub.docker.com/r/stecky/mosquitto/</Registry>
   <Network>host</Network>
   <MyIP/>
   <Shell>bash</Shell>
@@ -19,7 +19,7 @@
   <WebUI>http://[IP]:[PORT:1883]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/stecky/docker-templates/master/stecky/mosquitto-mqtt-broker.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/stecky/docker-templates/master/icons/eclipse-mosquitto.png</Icon>
-  <ExtraParams>-e DOCKER_MODS="linuxserver/mods:code-server-python3|stecky/mods:code-server-home-assistant"</ExtraParams>
+  <ExtraParams>-e DOCKER_MODS=stecky/mods:mosquitto-home-assistant</ExtraParams>
   <PostArgs/>
   <CPUset/>
   <DateInstalled>1600902529</DateInstalled>
