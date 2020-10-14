@@ -53,18 +53,18 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/mosquitto</HostDir>
-      <ContainerDir>/mosquitto/config</ContainerDir>
+      <HostDir>/mnt/user/appdata/mosquitto/config</HostDir>
+      <ContainerDir>/app/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir/>
-      <ContainerDir>/mosquitto/data</ContainerDir>
+      <HostDir>/mnt/user/appdata/mosquitto/data</HostDir>
+      <ContainerDir>/app/data</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir/>
-      <ContainerDir>/mosquitto/log</ContainerDir>
+      <HostDir>/mnt/user/appdata/mosquitto/log</HostDir>
+      <ContainerDir>/app/log</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
