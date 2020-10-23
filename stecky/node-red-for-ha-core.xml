@@ -81,7 +81,7 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Config Path" Target="/data" Default="" Mode="rw" Description="This is the path where user configuration data will be stored such as nodes and flows." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/nodered</Config>
+  <Config Name="Config Path" Target="/config" Default="" Mode="rw" Description="This is the path where user configuration data will be stored such as nodes and flows." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/nodered</Config>
   <Config Name="Host Port" Target="1880" Default="1880" Mode="tcp" Description="Container Port: 1880" Type="Port" Display="always" Required="true" Mask="false">1880</Config>
   <Config Name="Home Assistant URL" Target="HOMEASSISTANT_URL" Default="http://localhost:8123" Mode="" Description="The URL to your instance of Home Assistant Core" Type="Variable" Display="always" Required="false" Mask="false">http://localhost:8123</Config>
   <Config Name="Home Assistant Access Token" Target="HOMEASSISTANT_TOKEN" Default="" Mode="" Description="Create a long-lived access token in Home Assistant and paste it here" Type="Variable" Display="always" Required="false" Mask="true"/>
