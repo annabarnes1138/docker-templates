@@ -44,7 +44,7 @@
   <Data>
     <Volume>
       <HostDir>/mnt/cache/appdata/nodered</HostDir>
-      <ContainerDir>/data</ContainerDir>
+      <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
