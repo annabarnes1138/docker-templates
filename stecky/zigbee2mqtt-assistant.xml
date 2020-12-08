@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Zigbee2MqttAssistant (GUI Interface)</Name>
+  <Repository>carldebilly/zigbee2mqttassistant</Repository>
+  <Registry>https://hub.docker.com/r/carldebilly/zigbee2mqttassistant</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/96982-support-steckys-docker-repository</Support>
+  <Project>https://github.com/yllibed/Zigbee2MqttAssistant</Project>
+  <Overview>[p]This project is a Web GUI for the very good [a href='https://www.zigbee2mqtt.io/']Zigbee2Mqtt[/a] software</Overview>
+  <Category>Cloud: HomeAutomation: Productivity: Tools: Status:Stable</Category>
+  <WebUI>http://[IP]:[PORT:8880]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/stecky/docker-templates/master/stecky/mosquitto-mqtt-broker.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/stecky/docker-templates/master/icons/eclipse-mosquitto.png</Icon>
+  <ExtraParams>-e DOCKER_MODS=stecky/mods:mosquitto-home-assistant</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1600902529</DateInstalled>
+  <DonateText>Donations</DonateText>
+  <DonateLink>https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;amp;amp;amp;hosted_button_id=DX3QWDBMWTVFJ&amp;amp;amp;amp;source=url</DonateLink>
+  <Description>[p]This container is essentially a port of the official [a href='https://mosquitto.org/']Eclipse Mosquitto[/a] Docker container but with a base image of lsiobase/alpine.[/p]&#xD;
+[h4]Configuration[/h4]&#xD;
+[p]To set up paths and ports, see the descriptions in the unRAID docker settings page.[/p]&#xD;
+[p]To further control mosquitto configuration, place a [code]mosquitto.conf[/code] file in the config path, or start the container one time and it will write a template [code]mosquitto.conf.example[/code] file to the config path for you to copy and edit. For further details, refer to the full README at [a href='https://github.com/cmccambridge/mosquitto-unraid/blob/master/README.md']https://github.com/cmccambridge/mosquitto-unraid/blob/master/README.md[/a][/p]&#xD;
+&#xD;
+</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8880</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data/>
+  <Environment>
+    <Variable>
+      <Value/>
+      <Name>Z2MA_SETTINGS__MQTTSERVER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>Z2MA_SETTINGS__MQTTUSERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>Z2MA_SETTINGS__MQTTPASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>TZ</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Host Port: GUI" Target="8880" Default="8880" Mode="tcp" Description="Zigbee2MqttAssistant Server Port. &amp;lt;em&amp;gt;Container Port: &amp;lt;code&amp;gt;80&amp;lt;/code&amp;gt;&amp;lt;/em&amp;gt;" Type="Port" Display="always" Required="true" Mask="false">8880</Config>
+  <Config Name="MQTT Broker IP or hostname" Target="Z2MA_SETTINGS__MQTTSERVER" Default="" Mode="" Description="The IP Address or Hostname of your MQTT broker" Type="Variable" Display="always" Required="true" Mask="false">http://localhost:8123</Config>
+  <Config Name="MQTT Broker user name" Target="Z2MA_SETTINGS__MQTTUSERNAME" Default="" Mode="" Description="The username with access to your MQTT broker" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="MQTT Broker password" Target="Z2MA_SETTINGS__MQTTPASSWORD" Default="" Mode="" Description="The MQTT user password" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="Set to your TimeZone when using on Linux https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" Type="Variable" Display="always" Required="true" Mask="false"/>
+</Container>
