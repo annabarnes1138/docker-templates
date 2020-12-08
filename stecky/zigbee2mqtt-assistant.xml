@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>Zigbee2MqttAssistant (GUI Interface)</Name>
+  <Name>zigbee2mqtt-assistant</Name>
   <Repository>carldebilly/zigbee2mqttassistant</Repository>
   <Registry>https://hub.docker.com/r/carldebilly/zigbee2mqttassistant</Registry>
   <Network>bridge</Network>
@@ -55,7 +55,7 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Host Port: GUI" Target="8880" Default="8880" Mode="tcp" Description="Zigbee2MqttAssistant Server Port. &amp;lt;em&amp;gt;Container Port: &amp;lt;code&amp;gt;80&amp;lt;/code&amp;gt;&amp;lt;/em&amp;gt;" Type="Port" Display="always" Required="true" Mask="false">8880</Config>
+  <Config Name="Host Port: GUI" Target="80" Default="8880" Mode="tcp" Description="Zigbee2MqttAssistant Server Port. &amp;lt;em&amp;gt;Container Port: &amp;lt;code&amp;gt;80&amp;lt;/code&amp;gt;&amp;lt;/em&amp;gt;" Type="Port" Display="always" Required="true" Mask="false">8880</Config>
   <Config Name="MQTT Broker IP or hostname" Target="Z2MA_SETTINGS__MQTTSERVER" Default="" Mode="" Description="The IP Address or Hostname of your MQTT broker" Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="MQTT Broker user name" Target="Z2MA_SETTINGS__MQTTUSERNAME" Default="" Mode="" Description="The username with access to your MQTT broker" Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="MQTT Broker password" Target="Z2MA_SETTINGS__MQTTPASSWORD" Default="" Mode="" Description="The MQTT user password" Type="Variable" Display="always" Required="true" Mask="true"/>
