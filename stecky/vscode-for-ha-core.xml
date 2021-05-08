@@ -14,7 +14,7 @@
   <WebUI>http://[IP]:[PORT:8443]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/code-server.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/code-server.png</Icon>
-  <ExtraParams>-e DOCKER_MODS="linuxserver/mods:code-server-python3|stecky/mods:code-server-home-assistant"</ExtraParams>
+  <ExtraParams>-e DOCKER_MODS="linuxserver/mods:code-server-python3|ghcr.io/stecky/mods:code-server-home-assistant"</ExtraParams>
   <PostArgs/>
   <CPUset/>
   <DateInstalled>1600902529</DateInstalled>
