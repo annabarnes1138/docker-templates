@@ -75,11 +75,6 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value/>
-      <Name>PASSWORD</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
       <Value>99</Value>
       <Name>PUID</Name>
       <Mode/>
@@ -100,7 +95,6 @@
   <Config Name="MQTT Broker Port" Target="MQTT_PORT" Default="1883" Mode="" Description="The tcp port that your mqtt broker runs on" Type="Variable" Display="always" Required="false" Mask="false">1883</Config>
   <Config Name="MQTT Broker Username" Target="MQTT_USERNAME" Default="" Mode="" Description="The username of a user with access to your mqtt broker" Type="Variable" Display="always" Required="false" Mask="false"></Config>
   <Config Name="MQTT Broker Password" Target="MQTT_PASSWORD" Default="" Mode="" Description="The password of a user with access to your mqtt broker" Type="Variable" Display="always" Required="false" Mask="true"></Config>
-  <Config Name="VSCode Password" Target="PASSWORD" Default="" Mode="" Description="The password to access this instance of VSCode" Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
   <Config Name="PUID" Target="PUID" Default="" Mode="" Description="PUID" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="" Mode="" Description="PGID" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
 </Container>
