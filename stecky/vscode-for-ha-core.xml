@@ -22,10 +22,10 @@
   <DonateLink>https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;amp;amp;amp;hosted_button_id=DX3QWDBMWTVFJ&amp;amp;amp;amp;source=url</DonateLink>
   <Description>Code-server is VS Code running on a remote server, accessible through the browser.[ul][li]Allows you to edit your Home Assistant configuration directly from your web browser and can be embedded straight into the Home Assistant frontend UI.[/li][li]Installs and configures the Home Assistant, MDI icons and YAML extensions. This means that auto-completion works instantly, without the need for configuring anything.[/li][/ul][br][b][a href="https://github.com/linuxserver/docker-code-server"]Click here for additional details about the base image used[/a][/b]</Description>
   <Networking>
-    <Mode>host</Mode>
+    <Mode>bridge</Mode>
     <Publish>
       <Port>
-        <HostPort>8443</HostPort>
+        <HostPort></HostPort>
         <ContainerPort>8443</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
@@ -86,7 +86,7 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Webui" Target="8443" Default="" Mode="tcp" Description="Webui Port - Default 8443" Type="Port" Display="always" Required="true" Mask="false">8443</Config>
+  <Config Name="Webui" Target="8443" Default="" Mode="tcp" Description="Webui Port - Default 8443" Type="Port" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/vscode-for-ha-core" Mode="rw" Description="Path to the vscode config folder" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/code-server/</Config>
   <Config Name="Home Assistant URL" Target="HOMEASSISTANT_URL" Default="http://localhost:8123" Mode="" Description="The URL to your instance of Home Assistant Core" Type="Variable" Display="always" Required="true" Mask="false">http://localhost:8123</Config>
   <Config Name="Home Assistant Access Token" Target="HOMEASSISTANT_TOKEN" Default="" Mode="" Description="Create a long-lived access token in Home Assistant and paste it here" Type="Variable" Display="always" Required="true" Mask="true"/>
